@@ -1,16 +1,20 @@
 function arrayContainsSum(array, sum) {
+  let i = 0;
+  let ii = array.length - 1;
 
-  for (let i = 0; i < array.length; i++) {
+  while (i <= ii) {
     const element1 = array[i];
+    const element2 = array[ii];
+    const currentSum = element1 + element2;
 
-    for (let ii = 0; ii < array.length; ii++) {
-
-      const element2 = array[ii];
-
-      if (element1 + element2 === sum) {
-        return true;
-      }
+    if (currentSum === sum) {
+      return true;
+    } else if (currentSum > sum) {
+      ii--;
+    } else {
+      i++;
     }
   }
+
   return false;
 }
